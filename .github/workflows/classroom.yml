@@ -18,7 +18,7 @@ jobs:
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: sum
-        setup-command: ''
+        setup-command: npm install
         command: npm run dev
         input: |-
           5
