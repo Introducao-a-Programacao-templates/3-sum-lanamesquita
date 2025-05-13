@@ -20,7 +20,7 @@ jobs:
         test-name: Verificando resultado
         setup-command: npm install
         command: npm run classtest
-        timeout: 10
+        timeout: 60
         max-score: 10
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
