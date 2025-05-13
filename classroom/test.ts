@@ -2,9 +2,9 @@ import { spawnSync, execSync } from 'child_process';
 import * as fs from 'fs';
 
 const tests = [
-    { input: '2\n3\n4', expected: '9' },
-    { input: '12\n17\n24', expected: '53' },
-    { input: '-10\n-4\n23', expected: '9' },
+    { input: '2\n3\n4', expected: 9 },
+    { input: '12\n17\n24', expected: 53 },
+    { input: '-10\n-4\n23', expected: 9 },
 ];
 
 let passed = 0;
