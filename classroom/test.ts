@@ -51,6 +51,10 @@ tests.forEach((test, index) => {
     });
 
     const output = result.stdout.trim().split(/\r?\n/).pop(); // pega a última linha da saída
+    console.log(typeof output);
+    console.log(output);
+    console.log(typeof test.expected);
+    console.log(test.expected);
     const success = Number(output) === test.expected;
 
     if (success) {
