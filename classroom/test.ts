@@ -55,6 +55,7 @@ tests.forEach((test, index) => {
     console.log(output);
     console.log(typeof test.expected);
     console.log(test.expected);
+    console.log(Number(output) === test.expected);
     const success = Number(output) === test.expected;
 
     if (success) {
