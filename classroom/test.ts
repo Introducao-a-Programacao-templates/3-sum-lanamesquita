@@ -38,14 +38,14 @@ try {
     }
 }
 
-// Teste 2: se o resultado está correto
+// Teste 2-4: se o resultado está correto
 tests.forEach((test, index) => {
     const result = spawnSync('tsx', ['src/main.ts'], {
         input: test.input,
         encoding: 'utf-8',
     });
 
-    const output = result.stdout.trim().split(/\r?\n/).pop(); // pega a última linha da saída
+    const output = Number(result.stdout.trim().split(/\r?\n/).pop()); // pega a última linha da saída
     const success = output === test.expected;
 
     if (success) {
