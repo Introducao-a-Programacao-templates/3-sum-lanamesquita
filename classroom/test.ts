@@ -1,7 +1,12 @@
 import { spawnSync, execSync } from 'child_process';
 import * as fs from 'fs';
 
-const tests = [
+type TestCase = {
+    input: string;
+    expected: number;
+};
+
+const tests: TestCase[] = [
     { input: '2\n3\n4', expected: 9 },
     { input: '12\n17\n24', expected: 53 },
     { input: '-10\n-4\n23', expected: 9 },
@@ -45,8 +50,8 @@ tests.forEach((test, index) => {
         encoding: 'utf-8',
     });
 
-    const output = Number(result.stdout.trim().split(/\r?\n/).pop()); // pega a última linha da saída
-    const success = output === test.expected;
+    const output = result.stdout.trim().split(/\r?\n/).pop(); // pega a última linha da saída
+    const success = Number(output) === test.expected;
 
     if (success) {
         console.log(
