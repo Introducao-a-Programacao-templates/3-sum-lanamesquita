@@ -1,21 +1,19 @@
-import prompt from 'prompt-sync';
-const entrada: any = prompt();
+import * as readline from 'readline';
 
-/* Dicas:
-1. Use o comando console.log() para imprimir mensagens no console.
-2. Use o comando entrada() para ler entradas do usuário.
-    let number = entrada();
-3. Use o comando Number() para converter uma string em número.
-4. Rode com o comando: npm run dev
-*/
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
 
-console.log('Digite os 3 números');
-let str1 = entrada();
-let num1 = Number(str1);
-let str2 = entrada();
-let num2 = Number(str2);
-let str3 = entrada();
-let num3 = Number(str3);
-let soma = num1 + num2 + num3;
+let soma = 0;
+let i = 1;
 
-console.log(soma);
+rl.on('line', (input) => {
+    const numero = Number(input);
+    soma = soma + numero;
+    //console.log(`Soma: ${soma}`);
+    if (i === 3) {
+        rl.close();
+        console.log(soma);
+    } else i++;
+});

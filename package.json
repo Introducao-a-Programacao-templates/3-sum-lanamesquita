@@ -1,35 +1,37 @@
 {
-  "name": "operacoes-soma-de-3-inteiros",
-  "version": "1.0.0",
-  "description": "## Contexto",
-  "main": "main.ts",
-  "type": "module",
-  "dependencies": {
-    "prompt-sync": "^4.2.0"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.26.0",
-    "@types/node": "^22.15.17",
-    "@types/prompt-sync": "^4.2.3",
-    "eslint": "^9.26.0",
-    "globals": "^16.1.0",
-    "tsx": "^4.19.4",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.32.1"
-  },
-  "scripts": {
-    "test": "npm run test",
-    "dev": "tsx src/main.ts",
-    "watch": "tsx watch src/main.ts"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Introducao-a-Programacao-templates/operacoes-soma-de-3-inteiros.git"
-  },
-  "author": "Lana Mesquita",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Introducao-a-Programacao-templates/operacoes-soma-de-3-inteiros/issues"
-  },
-  "homepage": "https://github.com/Introducao-a-Programacao-templates/operacoes-soma-de-3-inteiros#readme"
+    "name": "operacoes-soma-de-3-inteiros",
+    "version": "1.0.0",
+    "description": "## Contexto",
+    "main": "main.ts",
+    "type": "module",
+    "dependencies": {
+        "prompt-sync": "^4.2.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.26.0",
+        "@types/node": "^22.15.17",
+        "@types/prompt-sync": "^4.2.3",
+        "eslint": "^9.26.0",
+        "globals": "^16.1.0",
+        "tsx": "^4.19.4",
+        "typescript": "^5.8.3",
+        "typescript-eslint": "^8.32.1"
+    },
+    "scripts": {
+        "test": "npm run test",
+        "build": "tsx src/main.ts",
+        "watch": "tsx watch src/main.ts",
+        "lint": "eslint . --ext .ts",
+        "classtest": "tsx classroom/test.ts"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Introducao-a-Programacao-templates/operacoes-soma-de-3-inteiros.git"
+    },
+    "author": "Lana Mesquita",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Introducao-a-Programacao-templates/operacoes-soma-de-3-inteiros/issues"
+    },
+    "homepage": "https://github.com/Introducao-a-Programacao-templates/operacoes-soma-de-3-inteiros#readme"
 }
