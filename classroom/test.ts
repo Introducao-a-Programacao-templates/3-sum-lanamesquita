@@ -1,23 +1,45 @@
-import { spawnSync } from 'child_process';
+import { spawnSync, execSync } from 'child_process';
 import * as fs from 'fs';
 
 const tests = [
-    { input: '2\n3\n4\n', expected: '9' },
+    { input: '2\n3\n4', expected: '9' },
     { input: '12\n17\n24', expected: '53' },
     { input: '-10\n-4\n23', expected: '9' },
 ];
 
 let passed = 0;
-let total = 3;
+let total = 4;
 
 console.log(
     '\n\n---------------------------\n\n🔍 Iniciando verificação da atividade...\n'
 );
 
-// Teste 1: se o resultado está correto
-tests.forEach((test, index) => {
-    console.log('Testando: ' + test.input);
+// Teste 1: Verifica se o projeto compila com npm run build
+try {
+    if (fs.existsSync('package.json')) {
+        execSync('npm install', { stdio: 'ignore' });
+        execSync('npm run build', { stdio: 'ignore' });
+        console.log(
+            `✅ Teste 1/${total}: Projeto compilou com sucesso (npm run build).\n\n`
+        );
+        passed++;
+    } else {
+        console.log(
+            `❌ Teste 1/${total}: Arquivo package.json não encontrado.\n\n`
+        );
+    }
+} catch (e) {
+    if (e instanceof Error) {
+        console.log(
+            `❌ Teste 1/${total}: Erro ao rodar npm run build: ` +
+                e.message +
+                '\n\n'
+        );
+    }
+}
 
+// Teste 2: se o resultado está correto
+tests.forEach((test, index) => {
     const result = spawnSync('tsx', ['src/main.ts'], {
         input: test.input,
         encoding: 'utf-8',
@@ -28,14 +50,19 @@ tests.forEach((test, index) => {
 
     if (success) {
         console.log(
-            `✅ Teste ${index + 1}/${total}: saída correta (${output})`
+            `✅ Teste ${index + 2}/${total}: ` +
+                '\n>> ENTRADAS\n' +
+                test.input +
+                '\n>> SAÍDA\n' +
+                output +
+                '\n\n'
         );
         passed++;
     } else {
         console.log(
-            `❌ Teste ${index + 1}/${total}: esperado "${
+            `❌ Teste ${index + 2}/${total}: esperado "${
                 test.expected
-            }", mas recebeu "${output}"`
+            }", mas recebeu "${output}"\n\n`
         );
     }
 });

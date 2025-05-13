@@ -11,7 +11,6 @@ let i = 1;
 rl.on('line', (input) => {
     const numero = Number(input);
     soma = soma + numero;
-    //console.log(`Soma: ${soma}`);
     if (i === 3) {
         rl.close();
         console.log(soma);
