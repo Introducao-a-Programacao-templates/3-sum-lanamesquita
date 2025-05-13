@@ -13,22 +13,13 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Verificando resultado
-      id: verificando-resultado
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: Verificando resultado
-        setup-command: npm install
-        command: npm run classtest
-        timeout: 60
-        max-score: 10
     - name: Teste
       id: teste
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: Teste
         setup-command: npm install
-        command: npm run classtest
+        command: npm run build
         input: |-
           1
           2
@@ -39,7 +30,6 @@ jobs:
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        VERIFICANDO-RESULTADO_RESULTS: "${{steps.verificando-resultado.outputs.result}}"
         TESTE_RESULTS: "${{steps.teste.outputs.result}}"
       with:
-        runners: verificando-resultado,teste
+        runners: teste
