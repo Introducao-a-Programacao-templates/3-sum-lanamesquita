@@ -3,13 +3,13 @@ import * as fs from 'fs';
 
 type TestCase = {
     input: string;
-    expected: number;
+    expected: string;
 };
 
 const tests: TestCase[] = [
-    { input: '2\n3\n4', expected: 9 },
-    { input: '12\n17\n24', expected: 53 },
-    { input: '-10\n-4\n23', expected: 9 },
+    { input: '2\n3\n4', expected: '9' },
+    { input: '12\n17\n24', expected: '53' },
+    { input: '-10\n-4\n23', expected: '9' },
 ];
 
 let passed = 0;
@@ -55,8 +55,8 @@ tests.forEach((test, index) => {
     console.log(output);
     console.log(typeof test.expected);
     console.log(test.expected);
-    console.log(Number(output) === test.expected);
-    const success = Number(output) === test.expected;
+    console.log(output === test.expected);
+    const success = output === test.expected;
 
     if (success) {
         console.log(
